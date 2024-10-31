@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
   template: `
     <div class="hashtag-container">
       @for (hashtag of hashtags; track $index) {
-        <span [ngStyle]="{'background': hashtag.color, 'color': '#fff', 'padding': '5px', 'border-radius': '5px'}" class="hashtag">
+        <span [ngStyle]="{'background': hashtag.color, 'color': '#fff', 'padding': '5px', 'border-radius': '25px'}" class="hashtag">
             {{ hashtag.text }}
           </span>
       }
@@ -18,17 +18,14 @@ import { Component, Input } from '@angular/core';
     .hashtag-container {
       display: flex;
       flex-wrap: wrap;
+      justify-content: 'center'
       gap: 5px;
-    }
-    .hashtag {
-      font-size: 1.2em;
-      font-weight: bold;
     }
   `]
 })
 export class RandomColouredHashtagsComponent {
-  @Input() count: number = 5; // Default number of hashtags
-  @Input() hashtagsList: string[] = ['#Angular', '#JavaScript', '#WebDevelopment', '#CSS', '#HTML'];
+  @Input() count: number = 0;
+  @Input() hashtagsList: string[] = [];
 
   hashtags: { text: string; color: string }[] = [];
 
@@ -38,9 +35,11 @@ export class RandomColouredHashtagsComponent {
 
   generateHashtags() {
     this.hashtags = [];
+
     for (let i = 0; i < this.count; i++) {
       const randomIndex = Math.floor(Math.random() * this.hashtagsList.length);
       const gradient = this.getRandomGradient();
+
       this.hashtags.push({
         text: this.hashtagsList[randomIndex],
         color: gradient

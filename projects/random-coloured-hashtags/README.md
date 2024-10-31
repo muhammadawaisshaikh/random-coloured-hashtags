@@ -9,31 +9,15 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 npm install random-coloured-hashtags
 ```
 
-### Import the module in your application module / standalone component imports:
-```typescript
-import { RandomColouredHashtagsModule } from 'random-coloured-hashtags';
-
-@NgModule({
-  declarations: [/* your components */],
-  imports: [
-    RandomColouredHashtagsModule,
-    /* other modules */
-  ],
-  bootstrap: [/* your main component */]
-})
-export class AppModule { }
-```
-
-OR
-
+### Import the component in imports:
 ```typescript
 import { Component } from '@angular/core';
-import { RandomColouredHashtagsModule } from 'random-coloured-hashtags';
+import { RandomColouredHashtagsComponent } from 'random-coloured-hashtags';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RandomColouredHashtagsModule],
+  imports: [RandomColouredHashtagsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
