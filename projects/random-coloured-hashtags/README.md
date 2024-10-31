@@ -1,24 +1,51 @@
-# RandomColouredHashtags
+# RandomColouredHashtagsLib
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.4.
 
-## Code scaffolding
+## To use the random-coloured-hashtags library in your Angular application, follow these steps:
 
-Run `ng generate component component-name --project random-coloured-hashtags` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project random-coloured-hashtags`.
-> Note: Don't forget to add `--project random-coloured-hashtags` or else it will be added to the default project in your `angular.json` file. 
+### Install the library:
+```bash 
+npm install random-coloured-hashtags
+```
 
-## Build
+### Import the module in your application module / standalone component imports:
+```typescript
+import { RandomColouredHashtagsModule } from 'random-coloured-hashtags';
 
-Run `ng build random-coloured-hashtags` to build the project. The build artifacts will be stored in the `dist/` directory.
+@NgModule({
+  declarations: [/* your components */],
+  imports: [
+    RandomColouredHashtagsModule,
+    /* other modules */
+  ],
+  bootstrap: [/* your main component */]
+})
+export class AppModule { }
+```
 
-## Publishing
+OR
 
-After building your library with `ng build random-coloured-hashtags`, go to the dist folder `cd dist/random-coloured-hashtags` and run `npm publish`.
+```typescript
+import { Component } from '@angular/core';
+import { RandomColouredHashtagsModule } from 'random-coloured-hashtags';
 
-## Running unit tests
+@Component({
+  selector: 'app-home',
+  standalone: true,
+  imports: [RandomColouredHashtagsModule],
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.css'
+})
+export class HomeComponent {
+...
+}
+```
 
-Run `ng test random-coloured-hashtags` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Use the component in your template:
+```typescript
+<lib-random-coloured-hashtags 
+    [count]="5" 
+    [hashtagsList]="['#Angular', '#JavaScript', '#WebDevelopment']">
+</lib-random-coloured-hashtags>
+```
