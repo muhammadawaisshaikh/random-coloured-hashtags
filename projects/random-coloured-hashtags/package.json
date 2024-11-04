@@ -1,6 +1,6 @@
 {
   "name": "random-coloured-hashtags",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "peerDependencies": {
     "@angular/common": "^18.2.0",
     "@angular/core": "^18.2.0"
@@ -11,5 +11,10 @@
   "sideEffects": false,
   "keywords": ["angular", "hashtag", "plugin", "javascript", "typescript"],
   "author": "Muhammad Awais",
-  "license": "MIT"
+  "license": "MIT",
+  "types": "types/index.d.ts",
+  "files": [
+    "dist",
+    "types"
+  ]
 }
